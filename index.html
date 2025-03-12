@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Library</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c850f;
+            background-image: url('https://t3.ftcdn.net/jpg/07/72/96/78/240_F_772967849_dwzOUlucT1AVyiWFSI924BqeVROzLIix.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+       
+        p {
+            color:yellow;
+            font-size:30px;
+            margin-bottom: 10px;
+            font-family: comic sans-serif;
+            margin-bottom:30px;
+            margin-top:50px;
+        }
+
+        /* Button Styles */
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .topic:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        /* Button Container for Back, Next, and Home */
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .navigation-buttons button {
+            background-color: #FF5733;
+            color: white;
+            margin-bottom:20px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #C0392B;
+            transform: translateY(-5px);
+        }
+
+        /* Video Container Styles */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 80%;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+
+        .video {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .image {
+            width: 200px;
+            height: 270px;
+            margin: 30px;
+        }
+
+        #topicTitle {
+            font-family: comic;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h2 {
+                font-size: 30px;
+            }
+
+            .topic {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            iframe {
+                height: 180px;
+            }
+        }
+
+        /* Title Styling */
+        h3 {
+            color: #f2e209;
+            font-size: 28px;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <h2></h2>
+    <p><strong>TRADING VIDEOS LIBRARY</strong></p>
+
+    <!-- Topic Buttons -->
+    <div class="topics" id="topicButtons">
+        <button class="topic" onclick="loadVideos('motivation')">BASICS OF MARKET</button>
+        <button class="topic" onclick="loadVideos('technology')">MARKET STRUCTURE</button>
+        <button class="topic" onclick="loadVideos('business')">CANDLE STICKS</button>
+        <button class="topic" onclick="loadVideos('education')">SUPPORT RESISTANCE TRENDLINE</button>
+        <button class="topic" onclick="loadVideos('sports')">MARKET CYCLE</button>
+        <button class="topic" onclick="loadVideos('music')">NEWS AND SESSIONS</button>
+        <button class="topic" onclick="loadVideos('movies')">IMBALANCE FEB ORDER BLOCK</button>
+        <button class="topic" onclick="loadVideos('health')">SUPPLY AND DEMAND</button>
+        <button class="topic" onclick="loadVideos('travel')">PATTERN</button>
+        <button class="topic" onclick="loadVideos('science')">LIVE MARKET SESSION</button>
+    </div>
+
+    <!-- Video Display Section -->
+    <h3 id="topicTitle"><strong>TRADE WHAT YOU SEE, NOT WHAT YOU THINK !!!</strong></h3>
+    <div class="button-container" id="ram">
+        <button class="topic"><a href="https://www.forexfactory.com/" target="_blank" class="link-button">FOREX FACTORY</a> </button>
+        <button class="topic"><a href="https://www.tradingview.com/chart/" target="_blank" class="link-button">TRADING VIEW</a></button>
+    </div>
+    
+    <center>
+        <img class="image" src="https://m.media-amazon.com/images/I/71YtbvQJTOL.jpg" alt="harish">
+        <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9VufDzPu-EGny63kW1tzK2wDkvRuiUulrsZSLrwiU8_zBP9ymZppiBuEq&s=10">
+        <img class="image" src="https://i.pinimg.com/1200x/11/da/14/11da14467057b082fcb1017992fd9be8.jpg" alt="image">
+    </center>
+    <div class="video-container" id="videoList"></div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <button onclick="goBack()">BACK</button>
+        <button onclick="goNext()">NEXT</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        // YouTube Video IDs categorized by topic
+        const videoTopics = {
+            motivation: ["MecUdFU_KNY", "dv0McirEt4I", "MN_mWMeUSFY", "DZZ2jAJHb10", "nr1OEibQX6w", "XF6roftHoyc", "QuXmHmmGvIY", "OvoKjTlfjyU", "acpAWFtGLn4"],
+            technology: ["7JeTRaWksLw", "x3DGaurAvXY", "XmZZur0uzys", "LBo9ym4BQVY", "k_2aTBeWiro", "EwLTyPegrYY", "XzeZRnOUqb4", "fuyjf8LMTwE", "fNxgLUl1V7I"],
+            business: ["C25_CvY4g4s", "viy65u6ZKQA", "dNt7K7LhCuI", "FnW00yGqEp8"],
+            education: ["_f7nd01YV1o", "FbpPjLs_CaI"],
+            sports: ["thwTD3owz_I", "taHrV2-UeHk"],
+            music: ["JTndC120UVA", "sYWtZQG_QFs"],
+            movies: ["RwTwVLfMBrg", "XyI85gLcNOE", "AUw81lXjSHA"],
+            health: ["lNnZxORCk4U"],
+            travel: ["W9K35Mctep8", "6RvmCRCFthw", "Gdeu0FcD8vc", "7yphScqCm8o", "YigiNWHR_hU"],
+            science: ["jS5ulFtUbBg"]
+        };
+
+        let topicList = ['motivation', 'technology', 'business', 'education', 'sports', 'music', 'movies', 'health', 'travel', 'science'];
+        let currentTopicIndex = -1;
+
+        function loadVideos(topic) {
+            const videoList = document.getElementById("videoList");
+            const topicTitle = document.getElementById("topicTitle");
+            videoList.innerHTML = ""; // Clear previous videos
+
+            currentTopicIndex = topicList.indexOf(topic);
+           
+            videoTopics[topic].forEach(videoId => {
+                const div = document.createElement("div");
+                div.className = "video";
+                div.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+                videoList.appendChild(div);
+            });
+        }
+
+        function goBack() {
+            if (currentTopicIndex > 0) {
+                currentTopicIndex--;
+                loadVideos(topicList[currentTopicIndex]);
+            }
+        }
+
+        function goNext() {
+            if (currentTopicIndex < topicList.length - 1) {
+                currentTopicIndex++;
+                loadVideos(topicList[currentTopicIndex]);
+            }
+        }
+
+        function goHome() {
+            currentTopicIndex = -1;
+            document.getElementById("videoList").innerHTML = "";
+            document.getElementById("topicTitle").innerText = "TRADE WHAT YOU SEE, NOT WHAT YOU THINK !!!";
+        }
+    </script>
+
+</body>
+</html>
